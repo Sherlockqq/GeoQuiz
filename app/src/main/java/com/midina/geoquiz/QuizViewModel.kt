@@ -1,7 +1,8 @@
 package com.midina.geoquiz
 
-import android.arch.lifecycle.ViewModel
+
 import android.util.Log
+import androidx.lifecycle.ViewModel
 
 private const val TAG = "QuizViewModel"
 

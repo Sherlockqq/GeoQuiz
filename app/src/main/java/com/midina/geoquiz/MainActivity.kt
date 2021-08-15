@@ -1,42 +1,39 @@
 package com.midina.geoquiz
 
-import android.app.Activity
-import android.app.ActivityOptions
-import android.arch.lifecycle.ViewModelProviders
-import android.content.Intent
-import android.os.Build
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
 
-private const val TAG = "MainActivity"
-private const val KEY_INDEX = "index"
-private const val KEY_CHEAT_COUNT = "cheat_count"
-private const val REQUEST_CODE_CHEAT = 0
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+
+//private const val TAG = "MainActivity"
+//private const val KEY_INDEX = "index"
+//private const val KEY_CHEAT_COUNT = "cheat_count"
+//private const val REQUEST_CODE_CHEAT = 0
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var trueButton: Button
-    private lateinit var falseButton: Button
-    private lateinit var nextButton: Button
-    private lateinit var cheatButton: Button
-    private lateinit var questionTextView: TextView
-    private lateinit var apiVersionTextView: TextView
-
-    private var cheatCount = 3
-
-    private val quizViewModel: QuizViewModel by lazy {
-        ViewModelProviders.of(this).get(QuizViewModel::class.java)
-    }
+//    private lateinit var trueButton: Button
+//    private lateinit var falseButton: Button
+//    private lateinit var nextButton: Button
+//    private lateinit var cheatButton: Button
+//    private lateinit var questionTextView: TextView
+//    private lateinit var apiVersionTextView: TextView
+//
+//    private var cheatCount = 3
+//
+//    private val quizViewModel: QuizViewModel by lazy {
+//        ViewModelProviders.of(this).get(QuizViewModel::class.java)
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.d(TAG, "onCreate(Bundle?) called")
 
+        val mainFragment = GameFragment()
+        supportFragmentManager.beginTransaction().add(R.id.place_holder, mainFragment)
+            .commit()
+    }
+}
+/*
         val currentIndex = savedInstanceState?.getInt(KEY_INDEX, 0) ?: 0
         cheatCount = savedInstanceState?.getInt(KEY_CHEAT_COUNT, 3) ?: 3
         quizViewModel.currentIndex = currentIndex
@@ -129,6 +126,5 @@ class MainActivity : AppCompatActivity() {
             else -> R.string.incorrect_toast
         }
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show()
-    }
+    }*/
 
-}
